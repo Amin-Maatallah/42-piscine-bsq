@@ -15,7 +15,7 @@
 t_map	mock_map(void)
 {
 	t_map	map;
-	char	*lines[9];
+	static char *lines[9];
 
 	map.rows = 9;
 	map.is_valid = 1;
