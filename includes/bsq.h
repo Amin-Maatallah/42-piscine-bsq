@@ -6,7 +6,7 @@
 /*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 10:12:58 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 14:33:38 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/21 14:41:02 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ typedef struct s_map
 	int		is_solvable;
 	char	**grid;
 }	t_map;
+
+typedef	struct s_solution
+{
+	int	col;
+	int	row;
+	int	size;
+}	t_solution;
 
 int		ft_atoi(char *str);
 int		read_map(char *filename);
