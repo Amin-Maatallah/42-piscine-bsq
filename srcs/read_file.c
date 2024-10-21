@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   files.c                                            :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:04:28 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 12:32:45 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/21 18:37:33 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
 #include "bsq.h"
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /* Converts the dict file into one long string */
 int	file_to_str(char *filename, char *str)
@@ -66,7 +66,7 @@ int	count_file(char *filename)
 
 int	read_map(char *filename)
 {
-	int	count;
+	int		count;
 	char	*map_str;
 
 	count = count_file(filename);

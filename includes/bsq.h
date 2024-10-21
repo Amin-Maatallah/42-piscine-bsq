@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 10:12:58 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 14:41:02 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/21 19:19:32 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,23 @@ typedef struct s_map
 	char	filled;
 	int		is_solvable;
 	char	**grid;
-}	t_map;
+}			t_map;
 
-typedef	struct s_solution
+typedef struct s_solution
 {
-	int	col;
-	int	row;
-	int	size;
-}	t_solution;
+	int		col;
+	int		row;
+	int		size;
+}			t_solution;
 
-int		ft_atoi(char *str);
-int		read_map(char *filename);
-int		is_valid_map(char *map_str);
-char	*ft_strdup(char *str, int to);
-int		ft_strlen(char *str);
-int		solve_map(t_map map);
-void	print_grid(char **grid, int rows, int cols);
-char	**get_obstacles_grid(t_map map);
-t_map	mock_map(void);
+int			ft_atoi(char *str);
+int			read_map(char *filename);
+int			is_valid_map(char *map_str);
+char		*ft_strdup(char *str, int to);
+int			ft_strlen(char *str);
+int			solve_map(t_map map);
+void		print_grid(char **grid, int rows, int cols);
+char		**get_obstacles_grid(t_map map);
+t_map		mock_map(void);
 
 #endif

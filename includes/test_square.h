@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   test_square.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 11:03:24 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 18:37:05 by amaatall         ###   ########.fr       */
+/*   Created: 2024/10/21 19:18:56 by amaatall          #+#    #+#             */
+/*   Updated: 2024/10/21 19:20:27 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsq.h"
-#include <stdio.h>
+#ifndef TEST_SQUARE_H
+# define TEST_SQUARE_H
 
-int	solve_map(t_map map)
+typedef struct s_square
 {
-	printf("Got map with %i rows\n", map.rows);
-	return (0);
-}
+	int		y;
+	int		x;
+	int		size;
+}			t_square;
+
+int			test_square(int **grid, int x, int y, int size);
+t_square	test_squares(int **grid, int rows, int cols);
+
+#endif

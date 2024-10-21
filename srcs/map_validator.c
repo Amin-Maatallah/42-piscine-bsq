@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   map_validator.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:45:05 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 14:26:20 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/21 18:36:59 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 t_map	parse_first_line(char *map_str)
 {
@@ -23,7 +23,6 @@ t_map	parse_first_line(char *map_str)
 	map.rows = ft_atoi(map_str);
 	if (map.rows > 0)
 	{
-
 	}
 	return (map);
 }
@@ -33,17 +32,18 @@ t_map	make_map(char *map_str)
 	t_map	map;
 	char	*first_line;
 
-//	first_line = get_first_line(map_str);
-//	printf("%s\n", first_line);
-//	map.rows = ft_atoi(first_line);
-//	if (map.rows > 0)
-//	{
-//		map.cols = (ft_strlen(map_str) - (map.rows) - ft_strlen(first_line) - 1) / map.rows;
-//		if (0 != map.cols % map.rows)
-//		map.cols = -1;
-//		printf("cols: %i\n", map.cols);
-//	}
-//	free(first_line);
+	// first_line = get_first_line(map_str);
+	// printf("%s\n", first_line);
+	// map.rows = ft_atoi(first_line);
+	// if (map.rows > 0)
+	// {
+	// 	map.cols = (ft_strlen(map_str) - (map.rows) - ft_strlen(first_line) - 1)
+	// 		/ map.rows;
+	// 	if (0 != map.cols % map.rows)
+	// 		map.cols = -1;
+	// 	printf("cols: %i\n", map.cols);
+	// }
+	// free(first_line);
 	return (map);
 }
 

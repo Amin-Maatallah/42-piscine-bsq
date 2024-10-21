@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lwillis <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/15 12:09:19 by lwillis           #+#    #+#              #
-#    Updated: 2024/10/21 14:27:29 by lwillis          ###   ########.fr        #
+#    Updated: 2024/10/21 17:59:36 by amaatall         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bsq
 
 # Defines where the source files are
-SOURCES = srcs/main.c srcs/read_file.c srcs/str_utils.c srcs/map_validator.c srcs/map.c srcs/mock.c srcs/print_grid.c srcs/obstacles_grid.c
+SOURCES = srcs/main.c srcs/read_file.c srcs/str_utils.c srcs/map_validator.c srcs/map.c srcs/mock.c srcs/print_grid.c srcs/obstacles_grid.c srcs/test_square.c
 
 # Shortcut to do the same but with the object files
 OBJECTS = $(SOURCES:c=o)

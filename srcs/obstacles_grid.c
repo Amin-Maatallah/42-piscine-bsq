@@ -1,34 +1,46 @@
-#include <stdlib.h>
-#include "bsq.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   obstacles_grid.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/21 18:37:12 by amaatall          #+#    #+#             */
+/*   Updated: 2024/10/21 18:37:26 by amaatall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char	**init_obstacles_grid(char ***obstacles_grid, int rows, int cols)
+#include "bsq.h"
+#include <stdlib.h>
+
+int	**init_obstacles_grid(int ***obstacles_grid, int rows, int cols)
 {
 	int	i;
 	int	j;
 
-	*obstacles_grid = (char **)malloc(rows * sizeof(char *));
+	*obstacles_grid = (int **)malloc(rows * sizeof(int *));
 	if (*obstacles_grid == NULL)
 		return (NULL);
 	i = -1;
 	while (++i < rows)
 	{
-		(*obstacles_grid)[i] = (char *)malloc(cols * sizeof(char));
+		(*obstacles_grid)[i] = (int *)malloc(cols * sizeof(int));
 		if ((*obstacles_grid)[i] == NULL)
 			return (NULL);
 		j = -1;
 		while (++j < cols)
-			(*obstacles_grid)[i][j] = '0';
+			(*obstacles_grid)[i][j] = 0;
 	}
 	return (*obstacles_grid);
 }
 
-char    **get_obstacles_grid(t_map map)
+int	**get_obstacles_grid(t_map map)
 {
-	int		i;
-	int		j;
-	int		k;
-	int		l;
-	char	**obstacles_grid;
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	**obstacles_grid;
 
 	obstacles_grid = init_obstacles_grid(&obstacles_grid, map.rows, map.cols);
 	if (obstacles_grid == NULL)

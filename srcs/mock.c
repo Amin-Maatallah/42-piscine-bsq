@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mock.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:26:49 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 14:36:41 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/21 18:37:07 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_map	mock_map(void)
 {
-	t_map	map;
-	static char *lines[9];
+	t_map		map;
+	static char	*lines[9];
 
 	map.rows = 9;
 	map.is_valid = 1;
