@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 10:12:58 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 19:37:10 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/21 19:44:54 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char		*ft_strdup(char *str, int to);
 int			ft_strlen(char *str);
 int			solve_map(t_map map);
 void		print_grid(char **grid, int rows, int cols);
+void		print_grid_int(int **grid, int rows, int cols);
 int			**get_obstacles_grid(t_map map);
 t_map		mock_map(void);
 
