@@ -13,7 +13,7 @@
 NAME = bsq
 
 # Defines where the source files are
-SOURCES = srcs/main.c srcs/read_file.c srcs/str_utils.c srcs/map_validator.c srcs/map.c srcs/mock.c
+SOURCES = srcs/main.c srcs/read_file.c srcs/str_utils.c srcs/map_validator.c srcs/map.c srcs/mock.c srcs/print_grid.c srcs/obstacles_grid.c
 
 # Shortcut to do the same but with the object files
 OBJECTS = $(SOURCES:c=o)
