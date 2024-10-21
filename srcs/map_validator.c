@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:45:05 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 19:27:29 by amaatall         ###   ########.fr       */
+/*   Updated: 2024/10/21 19:55:39 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ t_map	make_map(char *map_str)
 		if (map.cols > 0)
 			map.grid = make_grid(map_str, map.rows, map.cols);
 	}
+	else
+		map.cols = -1;
 	return (map);
 }
 
