@@ -11,11 +11,14 @@
 /* ************************************************************************** */
 
 #include "bsq.h"
+#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
 	//read_map(argv[1]);
 	t_map map = mock_map();
 	solve_map(map);
+	print_grid(map.grid, map.rows, map.cols);
+	print_grid(get_obstacles_grid(map), map.rows, map.cols);
 	return (argc - argc);
 }
