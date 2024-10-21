@@ -6,7 +6,7 @@
 /*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 12:35:36 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/21 14:35:51 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	main(int argc, char *argv[])
 {
-	read_map(argv[1]);
+	//read_map(argv[1]);
+	t_map map = mock_map();
+	solve_map(map);
 	return (argc - argc);
 }
