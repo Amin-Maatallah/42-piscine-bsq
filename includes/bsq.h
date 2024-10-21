@@ -38,6 +38,8 @@ int		is_valid_map(char *map_str);
 char	*ft_strdup(char *str, int to);
 int		ft_strlen(char *str);
 int		solve_map(t_map map);
+void	print_grid(char **grid, int rows, int cols);
+char	**get_obstacles_grid(t_map map);
 t_map	mock_map(void);
 
 #endif
