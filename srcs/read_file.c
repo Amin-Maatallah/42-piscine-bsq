@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   files.c                                            :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:04:28 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 12:32:45 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/21 18:59:45 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,18 @@ int	count_file(char *filename)
 	return (count);
 }
 
-int	read_map(char *filename)
+/* Entry point for maps passed as a file */
+t_map	read_map_file(char *filename)
 {
 	int	count;
 	char	*map_str;
+	t_map	map;
 
 	count = count_file(filename);
 	map_str = malloc(sizeof(char) * (count + 1));
 	file_to_str(filename, map_str);
-	is_valid_map(map_str);
+	map = make_map(map_str);
+//	is_valid_map(map_str);
 	free(map_str);
-	return (0);
+	return (map);
 }
