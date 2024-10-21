@@ -6,7 +6,7 @@
 /*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 10:12:58 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 19:02:40 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/21 19:03:05 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef	struct s_solution
 }	t_solution;
 
 int		ft_atoi(char *str);
-int		read_map_file(char *filename);
+t_map	read_map_file(char *filename);
 int		is_valid_map(char *map_str);
 char	*ft_strdup(char *str, int to);
 int		ft_strlen(char *str);
