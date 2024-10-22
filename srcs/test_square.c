@@ -20,16 +20,20 @@ int	test_square(int **grid, int x, int y, int size)
 	int	c;
 	int	d;
 
-	size -= 1;
-	a = grid[x][y];
-	b = grid[x + size][y];
-	c = grid[x][y + size];
-	d = grid[x + size][y + size];
-	if (d - c - b + a > 0)
-	{
-		return (0);
-	}
-	return (1);
+	if (x == 0 || y == 0)
+		a = 0;
+	else
+		a = grid[x - 1][y - 1];
+	if (y == 0)
+		b = 0;	
+	else
+		b = grid[x + size - 1][y - 1];
+	if (x == 0)
+		c = 0;
+	else
+		c = grid[x - 1][y + size - 1];
+	d = grid[x + size - 1][y + size - 1];
+	return (!(d - c - b + a > 0));
 }
 
 t_square	test_squares(int **grid, int rows, int cols)
@@ -39,10 +43,9 @@ t_square	test_squares(int **grid, int rows, int cols)
 	int x;
 	int y;
 
-	size = 2;
-
 	x = 0;
 	y = 0;
+	size = 1;
 
 	square.x = 0;
 	square.y = 0;
@@ -52,30 +55,20 @@ t_square	test_squares(int **grid, int rows, int cols)
 	{
 		if (test_square(grid, x, y, size))
 		{
-			if (size > square.size)
-			{
-				square.x = x;
-				square.y = y;
-				square.size = size;
-			}
+			square.x = x;
+			square.y = y;
+			square.size = size;
 			size++;
+			continue;
 		}
-		else
+		y++;
+		if ((y + size - 1) >= cols)
 		{
-			if (y + size < cols)
-			{
-				y++;
-			}
-			else if (x + size < rows)
-			{
-				x++;
-				y = 0;
-			}
-			else
-			{
-				break ;
-			}
+			x++;
+			y = 0;
 		}
+		if ((x + size - 1) >= rows)
+			break ;
 	}
 	return (square);
 };
