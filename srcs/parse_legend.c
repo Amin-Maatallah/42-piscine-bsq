@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker.c                                      :+:      :+:    :+:   */
+/*   parse_legend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:40:04 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 15:35:59 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/22 20:10:23 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,5 @@ t_legend	parse_legend(char *map_str)
 	legend.obstacle = map_str[--count];
 	legend.empty = map_str[--count];
 	legend.is_valid = is_valid_legend(legend, map_str);
-	print_legend(legend);
 	return (legend);
 }

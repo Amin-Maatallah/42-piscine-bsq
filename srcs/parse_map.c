@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:45:05 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 19:11:14 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/22 20:14:20 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	does_grid_match_legend(char *map_str, t_map map)
 	char	c;
 
 	i = 0;
-	printf("Checking for %c %c %c\n", map.empty, map.obstacle, map.filled);
 	while (map_str[i])
 	{
 		c = map_str[i];
@@ -80,6 +79,9 @@ void	print_map(t_map map)
 
 	i = 0;
 	j = 0;
+	printf("%s\n", map.filename);
+	printf("Rows: %i cols: %i valid: %i\n", map.rows, map.cols, map.is_valid);
+	printf("Empty: %c obstacle: %c filled: %c\n", map.empty, map.obstacle, map.filled);
 	while (i < map.rows)
 	{
 		while (j < map.cols)
@@ -118,18 +120,13 @@ t_map	parse_map(char *map_str, t_legend legend)
 	while ('\n' != map_str[i])
 		i++;
 	map_str = &map_str[i + 1];
-	printf("%s\n", map_str);
 	map.cols = count_cols(map_str);
 	map.is_valid = is_valid_grid(map_str, map);
-	printf("rows: %i cols: %i valid: %i\n", map.rows, map.cols, map.is_valid);
 	if (1 == map.is_valid)
 	{
 		map.grid = fill_grid(map_str, map.rows, map.cols);
 		if (NULL == map.grid)
 			map.is_valid = 0;
-		//TODO remove
-		if (map.is_valid)
-			print_map(map);
 	}
 	return (map);
 }

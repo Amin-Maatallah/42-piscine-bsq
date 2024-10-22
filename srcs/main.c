@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 19:37:00 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/22 20:14:33 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	free_all(t_map map)
 	}
 }
 
-void	make_map(char *map_str)
+void	make_map(char *map_str, char *filename)
 {
 	t_legend	legend;
 	t_map		map;
@@ -41,9 +41,12 @@ void	make_map(char *map_str)
 		map = parse_map(map_str, legend);
 		if (map.is_valid)
 		{
-			solve_map(&map);
+			map.filename = filename;
+			solve_map(map);
 			free_all(map);
 		}
+		else
+			write(2, "map error\n", 10);
 	}
 	free(map_str);
 }
@@ -51,20 +54,28 @@ void	make_map(char *map_str)
 int	main(int argc, char *argv[])
 {
 	char	*map_str;
+	int		i;
 	t_map	map;
 	t_legend	legend;
 
 	if (1 == argc)
 	{
 		//TODO Replace with stdin map
-		map_str = file_to_str("maps/15-10-4");
-		make_map(map_str);
+		map_str = file_to_str("maps/pdf");
+		make_map(map_str, "maps/pdf");
 	}
-	else if (2 == argc)
+	else if (argc > 1)
 	{
-		//seg fault on no file
-		map_str = file_to_str(argv[1]);
-		make_map(map_str);
+		i = 1;
+		while (i < argc)
+		{
+			map_str = file_to_str(argv[i]);
+			if (NULL == map_str)
+				write(2, "map error\n", 10);
+			else
+				make_map(map_str, argv[i]);
+			i++;
+		}
 	}
 	return (0);
 }
