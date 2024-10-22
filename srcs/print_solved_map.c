@@ -11,33 +11,18 @@
 /* ************************************************************************** */
 
 #include "square.h"
-#include <stdio.h>
 
 void	print_solved_map(t_square square, t_map map)
 {
-	int		x;
-	int		y;
-	int		size;
-	char	filled;
-	char	**grid;
+	int	i;
+	int	j;
 
-	grid = map.grid;
-	filled = map.filled;
-	x = square.x;
-	y = square.y;
-	size = square.size;
-	if (x >= 0 && x < map.rows && y >= 0 && y < map.cols)
+	i = square.x - 1;
+	while (++i < square.x + square.size)
 	{
-		map.grid[x][y] = map.filled;
+		j = square.y - 1;
+		while (++j < square.y + square.size)
+			map.grid[i][j] = map.filled;
 	}
-	// while (x < square.x + size)
-	// {
-	// 	while (y < square.y + size)
-	// 	{
-	// 		map.grid[x][y] = map.filled;
-	// 		y++;
-	// 	}
-	// 	x++;
-	// }
-	print_grid(grid, map.rows, map.cols);
+	print_grid(map.grid, map.rows, map.cols);
 }
