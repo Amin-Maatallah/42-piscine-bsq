@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:04:28 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 19:27:38 by amaatall         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:56:14 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <unistd.h>
 
 /* Converts the dict file into one long string */
-int	file_to_str(char *filename, char *str)
+int	read_to_str(char *filename, char *str)
 {
 	int		file;
 	int		read_byte;
@@ -32,6 +32,7 @@ int	file_to_str(char *filename, char *str)
 	while (read_byte)
 	{
 		if (-1 == read_byte)
+		//close
 			return (-1);
 		str[i] = buffer;
 		i++;
@@ -51,6 +52,7 @@ int	count_file(char *filename)
 
 	file = open(filename, O_RDONLY);
 	if (-1 == file)
+//.close
 		return (-1);
 	read_byte = read(file, &buffer, 1);
 	count = 0;
@@ -61,21 +63,25 @@ int	count_file(char *filename)
 		count++;
 		read_byte = read(file, &buffer, 1);
 	}
+	//close
 	return (count);
 }
 
-/* Entry point for maps passed as a file */
-t_map	read_map_file(char *filename)
+/* Returns NULL on mistakes or empty file */
+char	*file_to_str(char *filename)
 {
 	int		count;
 	char	*map_str;
-	t_map	map;
+	int		error;
 
 	count = count_file(filename);
+	if (count < 1)
+		return (NULL);
 	map_str = malloc(sizeof(char) * (count + 1));
-	file_to_str(filename, map_str);
-	map = make_map(map_str);
-	//	is_valid_map(map_str);
-	free(map_str);
-	return (map);
+	if (!map_str)
+		return (NULL);
+	error = read_to_str(filename, map_str);
+	if (1 == error)
+		return (NULL);
+	return (map_str);
 }
