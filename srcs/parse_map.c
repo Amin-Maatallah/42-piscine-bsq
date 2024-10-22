@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "bsq.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -82,9 +81,6 @@ void	print_map(t_map map)
 
 	i = 0;
 	j = 0;
-	printf("%s\n", map.filename);
-	printf("Rows: %i cols: %i valid: %i\n", map.rows, map.cols, map.is_valid);
-	printf("Empty: %c obstacle: %c filled: %c\n", map.empty, map.obstacle, map.filled);
 	while (i < map.rows)
 	{
 		while (j < map.cols)

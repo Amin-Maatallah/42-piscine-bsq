@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "bsq.h"
-#include <stdio.h>
 
 /* Removes any characters before the first number */
 char	*trim_start(char *str)
@@ -63,12 +62,6 @@ int	count_first_line(char *map_str)
 	while (map_str[i] && '\n' != map_str[i])
 		i++;
 	return (i);
-}
-
-//TODO remove
-void	print_legend(t_legend legend)
-{
-	printf("Rows: %i empty: %c obstacle: %c filled: %c is_valid: %i\n", legend.rows, legend.empty, legend.obstacle, legend.filled, legend.is_valid);
 }
 
 /* Parses the first line for rows and the valid characters */

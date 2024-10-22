@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "bsq.h"
-#include <stdio.h>
 #include <unistd.h>
 
 void	print_grid(char **grid, int rows, int cols)
@@ -26,20 +25,5 @@ void	print_grid(char **grid, int rows, int cols)
 		while (++j < cols)
 			write(1, &grid[i][j], 1);
 		write(1, "\n", 1);
-	}
-}
-
-void	print_grid_int(int **grid, int rows, int cols)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < rows)
-	{
-		j = -1;
-		while (++j < cols)
-			printf("%d", grid[i][j]);
-		printf("\n");
 	}
 }
