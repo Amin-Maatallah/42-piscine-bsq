@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:45:05 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 20:14:20 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/22 20:45:34 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/* Fills the 2D grid from the file */
 char	**fill_grid(char *map_str, int rows, int cols)
 {
 	int		count;
@@ -35,6 +36,7 @@ char	**fill_grid(char *map_str, int rows, int cols)
 	return (grid);
 }
 
+/* Checks if the grid has only the characters in the legend  */
 int	does_grid_match_legend(char *map_str, t_map map)
 {
 	int		i;
@@ -51,6 +53,7 @@ int	does_grid_match_legend(char *map_str, t_map map)
 	return (1);
 }
 
+/* Checks whether the grid follows the rules */
 int	is_valid_grid(char *map_str, t_map map)
 {
 	int	i;
@@ -107,6 +110,7 @@ int	count_cols(char *map_str)
 	return (i);
 }
 
+/* Creates the in-memory map */
 t_map	parse_map(char *map_str, t_legend legend)
 {
 	int		i;

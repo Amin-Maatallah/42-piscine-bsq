@@ -6,14 +6,16 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 20:14:33 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/22 20:39:21 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
+/* Frees any allocated memory */
 void	free_all(t_map map)
 {
 	int	i;
@@ -30,6 +32,7 @@ void	free_all(t_map map)
 	}
 }
 
+/* Builds a map from a valid string */
 void	make_map(char *map_str, char *filename)
 {
 	t_legend	legend;
@@ -51,6 +54,7 @@ void	make_map(char *map_str, char *filename)
 	free(map_str);
 }
 
+/* No args = stdin, otherwise a list of map files */
 int	main(int argc, char *argv[])
 {
 	char	*map_str;

@@ -6,13 +6,14 @@
 /*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:40:04 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 20:10:23 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/22 20:38:42 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 #include <stdio.h>
 
+/* Removes any characters before the first number */
 char	*trim_start(char *str)
 {
 	int	i;
@@ -23,6 +24,7 @@ char	*trim_start(char *str)
 	return (&str[i]);
 }
 
+/* Converts the first number(s) into the row count */
 int	get_rows(char *map_str, int len)
 {
 	int	i;
@@ -38,6 +40,7 @@ int	get_rows(char *map_str, int len)
 	return (number);
 }
 
+/* Checks that the first line doesn't have repeated characters */
 int	is_valid_legend(t_legend legend, char *map_str)
 {
 	int	rows;
@@ -51,15 +54,14 @@ int	is_valid_legend(t_legend legend, char *map_str)
 	return (1);
 }
 
+/* Finds the end of the first line */
 int	count_first_line(char *map_str)
 {
 	int	i;
 
 	i = 0;
 	while (map_str[i] && '\n' != map_str[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
@@ -69,6 +71,7 @@ void	print_legend(t_legend legend)
 	printf("Rows: %i empty: %c obstacle: %c filled: %c is_valid: %i\n", legend.rows, legend.empty, legend.obstacle, legend.filled, legend.is_valid);
 }
 
+/* Parses the first line for rows and the valid characters */
 t_legend	parse_legend(char *map_str)
 {
 	int			count;
