@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 10:12:58 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 15:54:55 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/22 19:13:49 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,12 @@ typedef struct s_map
 
 typedef	struct s_legend
 {
-	int		cols;
 	int		rows;
 	char	empty;
 	char	obstacle;
 	char	filled;
 	int		is_valid;
 }	t_legend;
-
-typedef struct s_solution
-{
-	int		col;
-	int		row;
-	int		size;
-}			t_solution;
 
 int			ft_atoi(char *str);
 t_map		read_map_file(char *filename);
