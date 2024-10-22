@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 10:12:58 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 19:13:49 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/22 19:33:41 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			ft_atoi(char *str);
 t_map		read_map_file(char *filename);
 char		*ft_strdup(char *str, int to);
 int			ft_strlen(char *str);
-int			solve_map(t_map map);
+int			solve_map(t_map *map);
 void		print_grid(char **grid, int rows, int cols);
 void		print_grid_int(int **grid, int rows, int cols);
 int			**get_obstacles_grid(t_map map);

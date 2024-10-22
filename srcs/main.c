@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 19:16:25 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/22 19:37:00 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ void	make_map(char *map_str)
 	if (1 == legend.is_valid)
 	{
 		map = parse_map(map_str, legend);
-		//Do something
 		if (map.is_valid)
+		{
+			solve_map(&map);
 			free_all(map);
+		}
 	}
 	free(map_str);
 }
@@ -57,16 +59,12 @@ int	main(int argc, char *argv[])
 		//TODO Replace with stdin map
 		map_str = file_to_str("maps/15-10-4");
 		make_map(map_str);
-		if (map.is_valid)
-			solve_map(map);
 	}
 	else if (2 == argc)
 	{
 		//seg fault on no file
 		map_str = file_to_str(argv[1]);
 		make_map(map_str);
-		if (map.is_valid)
-			solve_map(map);
 	}
 	return (0);
 }
