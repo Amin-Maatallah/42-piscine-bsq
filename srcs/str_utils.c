@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:42:23 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/21 18:37:37 by amaatall         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:34:43 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,27 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+/* Appends a char to the end of a string */
+char	*add_char_to_str(char *str, char c)
+{
+	int		len;
+	int		i;
+	char	*output;
+
+	len = ft_strlen(str);
+	output = malloc(len + 2);
+	i = 0;
+	while (str[i])
+	{
+		output[i] = str[i];
+		i++;
+	}
+	output[i] = c;
+	output[i + 1] = '\0';
+	free(str);
+	return (output);
 }
 
 /* Converts a string into an int */

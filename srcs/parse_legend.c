@@ -6,11 +6,12 @@
 /*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:40:04 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 20:38:42 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:09:17 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
+#include <stdio.h>
 
 /* Removes any characters before the first number */
 char	*trim_start(char *str)

@@ -6,13 +6,14 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 20:39:21 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:11:15 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 /* Frees any allocated memory */
 void	free_all(t_map map)
@@ -45,12 +46,39 @@ void	make_map(char *map_str, char *filename)
 		{
 			map.filename = filename;
 			solve_map(map);
+			print_map(map);
 			free_all(map);
 		}
 		else
 			write(2, "map error\n", 10);
 	}
+	else
+		write(2, "map error\n", 10);
 	free(map_str);
+}
+
+void	use_kb(void)
+{
+	char	buffer;
+	int		bytes_read;
+	char	*str;
+	int		len;
+
+	str = malloc(1);
+	str[0] = '\0';
+	bytes_read = read(1, &buffer, 1);
+
+	while (bytes_read)
+	{
+		str = add_char_to_str(str, buffer);
+		bytes_read = read(1, &buffer, 1);
+	}
+	len = ft_strlen(str);
+	if (len > 0 && '\n' != str[len - 1])
+	{
+		str = add_char_to_str(str, '\n');
+	}
+	make_map(str, "From kb");
 }
 
 /* No args = stdin, otherwise a list of map files */
@@ -62,11 +90,7 @@ int	main(int argc, char *argv[])
 	t_legend	legend;
 
 	if (1 == argc)
-	{
-		//TODO Replace with stdin map
-		map_str = file_to_str("maps/pdf");
-		make_map(map_str, "maps/pdf");
-	}
+		use_kb();
 	else if (argc > 1)
 	{
 		i = 1;

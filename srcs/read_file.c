@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:04:28 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 15:56:14 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:00:48 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ int	read_to_str(char *filename, char *str)
 	while (read_byte)
 	{
 		if (-1 == read_byte)
-		//close
+		{
+			close(file);
 			return (-1);
+		}
 		str[i] = buffer;
 		i++;
 		read_byte = read(file, &buffer, 1);
@@ -51,18 +53,20 @@ int	count_file(char *filename)
 
 	file = open(filename, O_RDONLY);
 	if (-1 == file)
-//.close
 		return (-1);
 	read_byte = read(file, &buffer, 1);
 	count = 0;
 	while (read_byte)
 	{
 		if (-1 == read_byte)
+		{
+			close(file);
 			return (-1);
+		}
 		count++;
 		read_byte = read(file, &buffer, 1);
 	}
-	//close
+	close(file);
 	return (count);
 }
 

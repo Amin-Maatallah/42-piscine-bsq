@@ -6,13 +6,14 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:45:05 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/22 20:45:34 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 13:58:57 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 /* Fills the 2D grid from the file */
 char	**fill_grid(char *map_str, int rows, int cols)
@@ -36,7 +37,7 @@ char	**fill_grid(char *map_str, int rows, int cols)
 }
 
 /* Checks if the grid has only the characters in the legend  */
-int	does_grid_match_legend(char *map_str, t_map map)
+int	does_grid_match_legend(char *map_str, t_map m)
 {
 	int		i;
 	char	c;
@@ -45,7 +46,7 @@ int	does_grid_match_legend(char *map_str, t_map map)
 	while (map_str[i])
 	{
 		c = map_str[i];
-		if (!(c == map.empty || c == map.obstacle || c == map.filled || '\n' == c))
+		if (!(c == m.empty || c == m.obstacle || c == m.filled || '\n' == c))
 			return (0);
 		i++;
 	}
@@ -65,7 +66,7 @@ int	is_valid_grid(char *map_str, t_map map)
 	count = 0;
 	len = ft_strlen(map_str);
 	while (i < len)
-	{	
+	{
 		if ('\n' == map_str[i])
 			count++;
 		i += map.cols + 1;
@@ -117,8 +118,9 @@ t_map	parse_map(char *map_str, t_legend legend)
 	map.obstacle = legend.obstacle;
 	map.filled = legend.filled;
 	i = 0;
-	while ('\n' != map_str[i])
+	while (map_str[i] && '\n' != map_str[i])
 		i++;
+	printf("i: %i\n", i);
 	map_str = &map_str[i + 1];
 	map.cols = count_cols(map_str);
 	map.is_valid = is_valid_grid(map_str, map);
