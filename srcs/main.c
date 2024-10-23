@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 15:39:02 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 17:58:37 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	free_all(t_map map)
 }
 
 /* Builds a map from a valid string */
-void	make_map(char *map_str, char *filename)
+void	make_map(char *map_str)
 {
 	t_legend	legend;
 	t_map		map;
@@ -43,7 +43,6 @@ void	make_map(char *map_str, char *filename)
 		map = parse_map(map_str, legend);
 		if (map.is_valid)
 		{
-			map.filename = filename;
 			if (1 == solve_map(map))
 				write(2, "map error\n", 10);
 			free_all(map);
@@ -78,7 +77,7 @@ void	use_kb(void)
 		str = add_char_to_str(str, '\n');
 		write(1, "\n", 1);
 	}
-	make_map(str, "From kb");
+	make_map(str);
 }
 
 /* No args = stdin, otherwise a list of map files */
@@ -98,7 +97,7 @@ int	main(int argc, char *argv[])
 			if (NULL == map_str)
 				write(2, "map error\n", 10);
 			else
-				make_map(map_str, argv[i]);
+				make_map(map_str);
 			i++;
 		}
 	}

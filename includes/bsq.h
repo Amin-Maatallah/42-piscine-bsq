@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 10:12:58 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 15:33:32 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 18:01:17 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 typedef struct s_map
 {
-	char	*filename;
 	int		is_valid;
 	int		cols;
 	int		rows;
@@ -35,8 +34,6 @@ typedef struct s_legend
 	int		is_valid;
 }	t_legend;
 
-int			ft_atoi(char *str);
-t_map		read_map_file(char *filename);
 char		*ft_strdup(char *str, int to);
 int			ft_strlen(char *str);
 int			solve_map(t_map map);
