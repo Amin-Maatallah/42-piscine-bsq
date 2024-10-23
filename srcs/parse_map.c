@@ -6,14 +6,13 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:45:05 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 13:58:57 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:35:37 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 
 /* Fills the 2D grid from the file */
 char	**fill_grid(char *map_str, int rows, int cols)
@@ -120,7 +119,6 @@ t_map	parse_map(char *map_str, t_legend legend)
 	i = 0;
 	while (map_str[i] && '\n' != map_str[i])
 		i++;
-	printf("i: %i\n", i);
 	map_str = &map_str[i + 1];
 	map.cols = count_cols(map_str);
 	map.is_valid = is_valid_grid(map_str, map);

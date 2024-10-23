@@ -6,14 +6,13 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 14:11:15 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:34:35 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 
 /* Frees any allocated memory */
 void	free_all(t_map map)
@@ -46,7 +45,6 @@ void	make_map(char *map_str, char *filename)
 		{
 			map.filename = filename;
 			solve_map(map);
-			print_map(map);
 			free_all(map);
 		}
 		else
