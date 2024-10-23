@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 15:15:34 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 15:39:02 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	use_kb(void)
 	if (len > 0 && '\n' != str[len - 1])
 	{
 		str = add_char_to_str(str, '\n');
+		write(1, "\n", 1);
 	}
 	make_map(str, "From kb");
 }
