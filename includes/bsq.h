@@ -43,6 +43,7 @@ int			solve_map(t_map map);
 void		print_grid(char **grid, int rows, int cols);
 void		print_grid_int(int **grid, int rows, int cols);
 int			**get_obstacles_grid(t_map map);
+void		free_obstacles_grid(int ***obstacles_grid, int rows);
 t_map		mock_map(void);
 t_legend	parse_legend(char *map_str);
 t_map		parse_map(char *map_str, t_legend legend);

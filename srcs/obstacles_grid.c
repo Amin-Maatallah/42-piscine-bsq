@@ -13,6 +13,15 @@
 #include "bsq.h"
 #include <stdlib.h>
 
+void	free_obstacles_grid(int ***obstacles_grid, int rows)
+{
+	int	i;
+
+	while (++i < rows)
+		free((*obstacles_grid)[i]);
+	free(*obstacles_grid);
+}
+
 int	**init_obstacles_grid(int ***obstacles_grid, int rows, int cols)
 {
 	int	i;
