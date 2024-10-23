@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 17:58:37 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 18:21:14 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	make_map(char *map_str)
 	free(map_str);
 }
 
-/* Enter a map from the keybaord instead of a file */
+/* Enter a map from the keyboard instead of a file */
 void	use_kb(void)
 {
 	char	buffer;
