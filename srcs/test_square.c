@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:49:43 by amaatall          #+#    #+#             */
-/*   Updated: 2024/10/23 14:14:30 by amaatall         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:22:42 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,43 +36,49 @@ int	test_square(int **grid, int x, int y, int size)
 	return (!(d - c - b + a > 0));
 }
 
+void	test_square_init(t_square_test *test)
+{
+	test->x = 0;
+	test->y = 0;
+	test->size = 1;
+}
+
+void	change_square(t_square_test *test, t_square *square, int size,
+		int size2)
+{
+	if (size > size2)
+	{
+		square->x = test->x;
+		square->y = test->y;
+		square->size = test->size;
+		test->size = size + 1;
+	}
+}
+
 t_square	test_squares(int **grid, int rows, int cols)
 {
-	t_square square;
-	int size;
-	int x;
-	int y;
+	t_square		square;
+	t_square_test	test;
 
-	x = 0;
-	y = 0;
-	size = 1;
-
+	test_square_init(&test);
 	square.x = 0;
 	square.y = 0;
 	square.size = 0;
-
 	while (1)
 	{
-		if ((y + size - 1) >= cols)
+		if ((test.y + test.size - 1) >= cols)
 		{
-			x++;
-			y = 0;
+			test.x++;
+			test.y = 0;
 		}
-		if ((x + size - 1) >= rows)
+		if ((test.x + test.size - 1) >= rows)
 			break ;
-
-		if (test_square(grid, x, y, size))
+		if (test_square(grid, test.x, test.y, test.size))
 		{
-			if (size > square.size)
-			{
-				square.x = x;
-				square.y = y;
-				square.size = size;
-				size++;
-			}
+			change_square(&test, &square, test.size, square.size);
 			continue ;
 		}
-		y++;
+		test.y++;
 	}
 	return (square);
-};
+}
