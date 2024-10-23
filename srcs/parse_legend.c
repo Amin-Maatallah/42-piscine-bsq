@@ -6,7 +6,7 @@
 /*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:40:04 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 14:13:29 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:57:29 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ int	get_rows(char *map_str, int len)
 }
 
 /* Checks that the first line doesn't have repeated characters */
-int	is_valid_legend(t_legend legend, char *map_str)
+int	is_valid_legend(t_legend legend)
 {
-	int	rows;
-
 	if (legend.empty == legend.obstacle)
 		return (0);
 	if (legend.empty == legend.filled)
@@ -81,6 +79,6 @@ t_legend	parse_legend(char *map_str)
 	legend.filled = map_str[--count];
 	legend.obstacle = map_str[--count];
 	legend.empty = map_str[--count];
-	legend.is_valid = is_valid_legend(legend, map_str);
+	legend.is_valid = is_valid_legend(legend);
 	return (legend);
 }

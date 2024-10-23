@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 14:43:37 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:50:25 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ int	main(int argc, char *argv[])
 {
 	char		*map_str;
 	int			i;
-	t_map		map;
-	t_legend	legend;
 
 	if (1 == argc)
 		use_kb();

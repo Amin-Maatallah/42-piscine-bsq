@@ -6,7 +6,7 @@
 #    By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/15 12:09:19 by lwillis           #+#    #+#              #
-#    Updated: 2024/10/22 19:15:56 by amaatall         ###   ########.fr        #
+#    Updated: 2024/10/23 14:58:38 by lwillis          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ OBJECTS = $(SOURCES:c=o)
 
 # Defines the compiler and its flags
 CC = cc
-#CFLAGS = -Wall -Wextra -Werror -I includes
-CFLAGS = -I includes 
+CFLAGS = -Wall -Wextra -Werror -I includes
 
 all: $(NAME)
 
