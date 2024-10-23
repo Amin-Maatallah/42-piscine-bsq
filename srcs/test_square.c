@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:49:43 by amaatall          #+#    #+#             */
-/*   Updated: 2024/10/23 15:22:42 by amaatall         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:14:37 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ t_square	test_squares(int **grid, int rows, int cols)
 			test.x++;
 			test.y = 0;
 		}
-		if ((test.x + test.size - 1) >= rows)
+		if ((test.x + test.size - 1) >= rows || (test.y + test.size - 1) >= cols
+			|| test.size > rows || test.size > cols)
 			break ;
 		if (test_square(grid, test.x, test.y, test.size))
 		{
