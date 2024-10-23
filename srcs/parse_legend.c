@@ -6,7 +6,7 @@
 /*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:40:04 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 14:57:29 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 17:46:26 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,15 @@ int	count_first_line(char *map_str)
 t_legend	parse_legend(char *map_str)
 {
 	int			count;
+	int			i;
 	t_legend	legend;
 
+	i = 0;
 	map_str = trim_start(map_str);
 	count = count_first_line(map_str);
-	if (count < 4)
+	while (map_str[i] >= '0' && map_str[i] <= '9')
+		i++;
+	if (count < 4 || count > (i + 3))
 	{
 		legend.is_valid = 0;
 		return (legend);
