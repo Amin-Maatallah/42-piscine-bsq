@@ -44,17 +44,13 @@ int	**init_obstacles_grid(int ***obstacles_grid, int rows, int cols)
 	return (*obstacles_grid);
 }
 
-int	**get_obstacles_grid(t_map map)
+void	fill_obstacles_grid(int ***obstacles_grid, t_map map)
 {
 	int	i;
 	int	j;
 	int	k;
 	int	l;
-	int	**obstacles_grid;
 
-	obstacles_grid = init_obstacles_grid(&obstacles_grid, map.rows, map.cols);
-	if (obstacles_grid == NULL)
-		return (NULL);
 	i = -1;
 	while (++i < map.rows)
 	{
@@ -68,10 +64,20 @@ int	**get_obstacles_grid(t_map map)
 				{
 					l = j - 1;
 					while (++l < map.cols)
-						++obstacles_grid[k][l];
+						++(*obstacles_grid)[k][l];
 				}
 			}
 		}
 	}
+}
+
+int	**get_obstacles_grid(t_map map)
+{
+	int	**obstacles_grid;
+
+	obstacles_grid = init_obstacles_grid(&obstacles_grid, map.rows, map.cols);
+	if (obstacles_grid == NULL)
+		return (NULL);
+	fill_obstacles_grid(&obstacles_grid, map);
 	return (obstacles_grid);
 }
