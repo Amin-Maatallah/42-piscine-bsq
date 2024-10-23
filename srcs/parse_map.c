@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: lwillis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 11:45:05 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 14:40:25 by lwillis          ###   ########.fr       */
+/*   Created: 2024/10/23 20:06:51 by lwillis           #+#    #+#             */
+/*   Updated: 2024/10/23 20:42:22 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 #include <stdlib.h>
-#include <unistd.h>
 
 /* Fills the 2D grid from the file */
 char	**fill_grid(char *map_str, int rows, int cols)
