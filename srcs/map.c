@@ -12,6 +12,7 @@
 
 #include "bsq.h"
 #include "square.h"
+#include <stdlib.h>
 
 int	solve_map(t_map map)
 {
@@ -20,6 +21,7 @@ int	solve_map(t_map map)
 
 	ob_grid = get_obstacles_grid(map);
 	square = test_squares(ob_grid, map.rows, map.cols);
+	free(ob_grid);
 	if (square.size == 0)
 		return (0);
 	print_solved_map(square, map);
