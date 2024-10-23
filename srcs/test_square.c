@@ -6,12 +6,11 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:49:43 by amaatall          #+#    #+#             */
-/*   Updated: 2024/10/23 19:14:37 by amaatall         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:29:41 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "square.h"
-#include <stdlib.h>
 
 int	test_square(int **grid, int x, int y, int size)
 {
