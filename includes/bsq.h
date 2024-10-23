@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 10:12:58 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 12:35:48 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:42:44 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_map
 	char	**grid;
 }			t_map;
 
-typedef	struct s_legend
+typedef struct s_legend
 {
 	int		rows;
 	char	empty;
@@ -45,7 +45,6 @@ void		print_grid_int(int **grid, int rows, int cols);
 int			**get_obstacles_grid(t_map map);
 t_map		mock_map(void);
 t_legend	parse_legend(char *map_str);
-void		print_map(t_map map);
 t_map		parse_map(char *map_str, t_legend legend);
 char		*file_to_str(char *filename);
 char		*add_char_to_str(char *str, char c);

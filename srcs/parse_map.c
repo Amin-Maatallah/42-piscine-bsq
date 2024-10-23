@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:45:05 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 14:35:37 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:40:25 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,28 +71,6 @@ int	is_valid_grid(char *map_str, t_map map)
 		i += map.cols + 1;
 	}
 	return (count == map.rows);
-}
-
-// TODO remove
-void	print_map(t_map map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < map.rows)
-	{
-		while (j < map.cols)
-		{
-			write(1, &map.grid[i][j], 1);
-			j++;
-			if (j == map.cols)
-				write(1, "\n", 1);
-		}
-		i++;
-		j = 0;
-	}
 }
 
 /* Counts the columns in the first line. This is used to determine validity */

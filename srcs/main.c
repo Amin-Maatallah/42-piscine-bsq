@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 14:34:35 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:43:37 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	use_kb(void)
 	str = malloc(1);
 	str[0] = '\0';
 	bytes_read = read(1, &buffer, 1);
-
 	while (bytes_read)
 	{
 		str = add_char_to_str(str, buffer);
@@ -82,9 +81,9 @@ void	use_kb(void)
 /* No args = stdin, otherwise a list of map files */
 int	main(int argc, char *argv[])
 {
-	char	*map_str;
-	int		i;
-	t_map	map;
+	char		*map_str;
+	int			i;
+	t_map		map;
 	t_legend	legend;
 
 	if (1 == argc)
