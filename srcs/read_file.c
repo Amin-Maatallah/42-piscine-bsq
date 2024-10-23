@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:04:28 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 14:00:48 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 15:16:36 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/* Converts the dict file into one long string */
+/* Converts the file into one long string */
 int	read_to_str(char *filename, char *str)
 {
 	int		file;
@@ -44,6 +44,7 @@ int	read_to_str(char *filename, char *str)
 	return (0);
 }
 
+/* Counts how many bytes are in the file */
 int	count_file(char *filename)
 {
 	int		file;
