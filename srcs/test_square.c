@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:49:43 by amaatall          #+#    #+#             */
-/*   Updated: 2024/10/22 15:09:54 by amaatall         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:14:30 by amaatall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	test_square(int **grid, int x, int y, int size)
 	else
 		a = grid[x - 1][y - 1];
 	if (y == 0)
-		b = 0;	
+		b = 0;
 	else
 		b = grid[x + size - 1][y - 1];
 	if (x == 0)
@@ -53,15 +53,6 @@ t_square	test_squares(int **grid, int rows, int cols)
 
 	while (1)
 	{
-		if (test_square(grid, x, y, size))
-		{
-			square.x = x;
-			square.y = y;
-			square.size = size;
-			size++;
-			continue;
-		}
-		y++;
 		if ((y + size - 1) >= cols)
 		{
 			x++;
@@ -69,6 +60,19 @@ t_square	test_squares(int **grid, int rows, int cols)
 		}
 		if ((x + size - 1) >= rows)
 			break ;
+
+		if (test_square(grid, x, y, size))
+		{
+			if (size > square.size)
+			{
+				square.x = x;
+				square.y = y;
+				square.size = size;
+				size++;
+			}
+			continue ;
+		}
+		y++;
 	}
 	return (square);
 };
