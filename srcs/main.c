@@ -6,7 +6,7 @@
 /*   By: amaatall <amaatall@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:56:38 by lwillis           #+#    #+#             */
-/*   Updated: 2024/10/23 14:50:25 by lwillis          ###   ########.fr       */
+/*   Updated: 2024/10/23 15:05:44 by lwillis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	make_map(char *map_str, char *filename)
 		if (map.is_valid)
 		{
 			map.filename = filename;
-			solve_map(map);
+			if (1 == solve_map(map))
+				write(2, "map error\n", 10);
 			free_all(map);
 		}
 		else
